@@ -18,7 +18,7 @@ function Nav() {
           <Link to="/games">Games</Link>
         </li>
         <li className="nav-creategames">
-          <Link to="/create-game">New Game</Link>
+          <Link to="/games/create-game">New Game</Link>
         </li>
       </ul>
     </div>
