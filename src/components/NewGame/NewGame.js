@@ -20,7 +20,9 @@ function NewGame() {
   async function handleOnSubmit(event) {
     event.preventDefault();
     try {
-      await createGame({ ...game, is_favorite: isChecked });
+      let response = await createGame({ ...game, is_multiplayer: isChecked });
+      console.log(response)
+      if (response.status === 200) {
       alert("Game Created");
       setGame({
         name: "",
@@ -33,10 +35,12 @@ function NewGame() {
         art: "",
       });
       navigate(`/games`);
+    }
     } catch (error) {
-      console.log(error);
+      return error
     }
   }
+  
 
   return (
     <div>
@@ -53,29 +57,63 @@ function NewGame() {
             required
           />
         </div>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="release_year">Release Year</label>
         <div>
           <input
-            placeholder="Name"
-            type="text"
-            id="name"
-            value={game.name}
-            onChange={(e) => setGame({ ...game, name: e.target.value })}
+            placeholder="Release Year"
+            type="number"
+            id="release_year"
+            value={game.release_year}
+            onChange={(e) => setGame({ ...game, release_year: e.target.value })}
             required
           />
         </div>
-        <label htmlFor="art">Url</label>
+        <label htmlFor="developer">Developer</label>
         <div>
           <input
-            placeholder="Art"
-            type="art"
+            placeholder="Developer"
+            type="text"
+            id="developer"
+            value={game.developer}
+            onChange={(e) => setGame({ ...game, developer: e.target.value })}
+            required
+          />
+        </div>
+        <label htmlFor="original_price">Original Price</label>
+        <div>
+          <input
+            placeholder="Original Price"
+            type="number"
+            id="original_price"
+            value={game.original_price}
+            onChange={(e) =>
+              setGame({ ...game, original_price: e.target.value })
+            }
+            required
+          />
+        </div>
+        <label htmlFor="market_price">Market Price</label>
+        <div>
+          <input
+            placeholder="Market Price"
+            type="number"
+            id="market_price"
+            value={game.market_price}
+            onChange={(e) => setGame({ ...game, market_price: e.target.value })}
+            required
+          />
+        </div>
+        <label htmlFor="art">Box Art Url</label>
+        <div>
+          <input
+            placeholder="Box Art Url"
+            type="text"
             id="art"
             value={game.art}
             onChange={(e) => setGame({ ...game, art: e.target.value })}
-            required
           />
         </div>
-        <label htmlFor="genre">genre</label>
+        <label htmlFor="genre">Genre</label>
         <div>
           <input
             placeholder="Genre"

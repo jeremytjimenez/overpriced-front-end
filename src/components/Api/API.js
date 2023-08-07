@@ -5,6 +5,7 @@ async function createGame(data) {
     let result = await Axios.post(`/games`, data);
     return result;
   } catch (error) {
+    alert(error.response.data.error);
     return error;
   }
 }
