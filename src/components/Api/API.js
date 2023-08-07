@@ -11,5 +11,15 @@ async function createGame(data) {
   }
 }
 
-export {createGame};
+async function getAllGames() {
+  try {
+    let result = await Axios.get("/games");
+
+    return result;
+  } catch (e) {
+    return e;
+  }
+};
+
+export {createGame, getAllGames};
 
