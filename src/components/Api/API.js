@@ -1,15 +1,15 @@
 import Axios from "./Axios";
 
-async function getAllGames() {
+
+async function createGame(data) {
   try {
-    let result = await Axios.get("/games");
-
+    let result = await Axios.post(`/games`, data);
     return result;
-  } catch (e) {
-    return e;
+  } catch (error) {
+    alert(error.response.data.error);
+    return error;
   }
-};
+}
 
-export {
-    getAllGames,
-};
+export {createGame};
+
