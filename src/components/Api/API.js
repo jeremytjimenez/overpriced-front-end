@@ -21,5 +21,15 @@ async function getAllGames() {
   }
 };
 
-export {createGame, getAllGames};
+async function updateGameById(id, data) {
+  try {
+    let result = await Axios.put(`/games/${id}`, data);
+    return result;
+  } catch (error) {
+    alert(error.response.data.error);
+    return error;
+  }
+}
+
+export { createGame, getAllGames, updateGameById };
 
