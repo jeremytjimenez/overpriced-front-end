@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { getAllGames } from "../Api/API";
 
+import "./AllGames.css";
+
 function AllGames() {
   const [games, setGames] = useState([]);
 
@@ -36,7 +38,7 @@ function AllGames() {
   }
 
   return (
-    <div>
+    <div className="all-games">
       <ul>
         {games.map((game) => {
           return (

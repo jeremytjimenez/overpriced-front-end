@@ -1,0 +1,47 @@
+.nav {
+    background: radial-gradient(#5cc9fb, #aebfd4);
+    font-weight: bolder;
+    font-size: large;
+    font-family: 'Gamestation', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 4em;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav ul li {
+    display: inline;
+    font-size: 20px;
+    padding-top: 2em;
+}
+
+.nav-home {
+    float: left;
+}
+
+.nav img {
+    max-width: 200px;
+    padding-left: 13em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.nav-games,
+.nav-creategames {
+    float: right;
+    margin-left: 2em;
+    padding-right: 2em;
+}
+
+.nav a {
+    text-decoration: none !important;
+    color: #182580;
+}
+
+.nav a:hover {
+    color: #1e5ddb;
+}
