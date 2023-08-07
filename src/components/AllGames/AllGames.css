@@ -1,0 +1,28 @@
+.all-games ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.all-games ul li img {
+    max-width: 300px;
+}
+
+.all-games ul li {
+    color: #526879;
+    font-family: 'Gamestation','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 5px ridge rgb(104, 150, 206);
+    margin-left: 5em;
+    margin-right: 5em;
+    border-radius: 30px;
+}
+
+.all-games ul li h2 {
+    text-align: center;
+}
+
+.all-games ul li h2:hover {
+    color: #1e5ddb;
+}

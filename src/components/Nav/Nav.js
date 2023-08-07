@@ -1,18 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "./Nav.css"
+import overpricedLogo from "../../assets/overpricedlogo.png"
+
 function Nav() {
   return (
-    <div>
-      <p>
-        <Link to="/">Home</Link>
-      </p>
-      <p>
-        <Link to="/games">Games</Link>
-      </p>
-      <p>
-        <Link to="/create-game">New Game</Link>
-      </p>
+    <div className="nav">
+      <ul>
+        <li className="nav-home">
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/"><img src={overpricedLogo} alt="oplogo"/></Link>
+        </li>
+        <li className="nav-games">
+          <Link to="/games">Games</Link>
+        </li>
+        <li className="nav-creategames">
+          <Link to="/create-game">New Game</Link>
+        </li>
+      </ul>
     </div>
   );
 }

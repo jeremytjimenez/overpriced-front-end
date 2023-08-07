@@ -1,3 +1,8 @@
+html {
+min-height: 100%;
+/* background-image: url(https://techcrunch.com/wp-content/uploads/2014/06/babygif.gif?w=700&crop=1); */
+}
+
 .App {
   text-align: center;
 }
