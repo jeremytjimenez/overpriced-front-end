@@ -14,14 +14,13 @@ function NewGame() {
     is_multiplayer: false,
     art: "",
   });
-  const [isChecked, setisChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
 
   async function handleOnSubmit(event) {
     event.preventDefault();
     try {
       let response = await createGame({ ...game, is_multiplayer: isChecked });
-      console.log(response)
       if (response.status === 200) {
       alert("Game Created");
       setGame({
@@ -130,7 +129,7 @@ function NewGame() {
             type="checkbox"
             id="is_multiplayer"
             checked={isChecked}
-            onChange={(e) => setisChecked(e.target.checked)}
+            onChange={(e) => setIsChecked(e.target.checked)}
           />
         </div>
         <button>CREATE NEW GAME</button>
