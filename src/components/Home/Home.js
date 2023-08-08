@@ -6,7 +6,6 @@ function Home() {
   return (
     <div className="home">
       <h2>Welcome to Overpriced</h2>
-      <div class="loader">something</div>
     </div>
   );
 }
