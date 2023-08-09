@@ -152,7 +152,7 @@ function EditGame() {
         </div>
 
         <div className="edit-is-multiplayer">
-          <label htmlFor="is_multiplayer">Favorite</label>
+          <label htmlFor="is_multiplayer">Multiplayer</label>
           <br />
           <input
             type="checkbox"

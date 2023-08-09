@@ -12,10 +12,7 @@ function Game() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  async function fetchData() {
+    const fetchData = async () => {
     try {
       let result = await getAllGames();
 
@@ -26,7 +23,10 @@ function Game() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+    fetchData();
+  }, [id]);
+
   async function handleDeleteSubmit(id) {
     try {
       let result = await handleDeleteById(id);

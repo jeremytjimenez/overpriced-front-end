@@ -18,8 +18,8 @@ function AllGames() {
   async function fetchData() {
     try {
       let result = await getAllGames();
-
-      setGames(result.data);
+      const sortedGames = result.data.sort((a, b) => a.name.localeCompare(b.name));
+      setGames(sortedGames);
     } catch (error) {
       console.log(error);
     }
