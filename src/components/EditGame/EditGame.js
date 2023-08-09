@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { updateGameById, getAllGames } from "../Api/API";
+
+import "./EditGame.css"
 
 function EditGame() {
   const { id } = useParams();
@@ -52,14 +54,14 @@ function EditGame() {
       return error;
     }
   }
-  
 
   return (
-    <div>
+    <div className="edit-game">
       <h2>Edit game</h2>
-      <form onSubmit={handleOnSubmit}>
-        <label htmlFor="name">Name</label>
-        <div>
+      <form className="edit-game-form" onSubmit={handleOnSubmit}>
+        <div className="edit-name">
+          <label htmlFor="name">Name</label>
+          <br />
           <input
             placeholder="Name"
             type="text"
@@ -69,8 +71,10 @@ function EditGame() {
             required
           />
         </div>
-        <label htmlFor="release_year">Release Year</label>
-        <div>
+
+        <div className="edit-releaseyear">
+          <label htmlFor="release_year">Release Year</label>
+          <br />
           <input
             placeholder="Release Year"
             type="number"
@@ -80,8 +84,10 @@ function EditGame() {
             required
           />
         </div>
-        <label htmlFor="developer">Developer</label>
-        <div>
+
+        <div className="edit-developer">
+          <label htmlFor="developer">Developer</label>
+          <br />
           <input
             placeholder="Developer"
             type="text"
@@ -91,8 +97,10 @@ function EditGame() {
             required
           />
         </div>
-        <label htmlFor="original_price">Original Price</label>
-        <div>
+
+        <div className="edit-original-price">
+          <label htmlFor="original_price">Original Price</label>
+          <br />
           <input
             placeholder="Original Price"
             type="number"
@@ -104,8 +112,10 @@ function EditGame() {
             required
           />
         </div>
-        <label htmlFor="market_price">Market Price</label>
-        <div>
+
+        <div className="edit-market-price">
+          <label htmlFor="market_price">Market Price</label>
+          <br />
           <input
             placeholder="Market Price"
             type="number"
@@ -115,8 +125,10 @@ function EditGame() {
             required
           />
         </div>
-        <label htmlFor="art">Box Art Url</label>
-        <div>
+
+        <div className="edit-art">
+          <label htmlFor="art">Box Art Url</label>
+          <br />
           <input
             placeholder="Box Art Url"
             type="text"
@@ -125,8 +137,10 @@ function EditGame() {
             onChange={(e) => setGame({ ...game, art: e.target.value })}
           />
         </div>
-        <label htmlFor="genre">Genre</label>
-        <div>
+
+        <div className="edit-genre">
+          <label htmlFor="genre">Genre</label>
+          <br />
           <input
             placeholder="Genre"
             type="text"
@@ -136,8 +150,10 @@ function EditGame() {
             required
           />
         </div>
-        <label htmlFor="is_multiplayer">Favorite</label>
-        <div>
+
+        <div className="edit-is-multiplayer">
+          <label htmlFor="is_multiplayer">Favorite</label>
+          <br />
           <input
             type="checkbox"
             id="is_multiplayer"
@@ -145,7 +161,7 @@ function EditGame() {
             onChange={(e) => setIsChecked(e.target.checked)}
           />
         </div>
-        <button>EDIT GAME</button>
+        <button className="edit-button">EDIT GAME</button>
       </form>
     </div>
   );
