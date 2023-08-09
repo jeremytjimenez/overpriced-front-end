@@ -12,13 +12,10 @@ async function createGame(data) {
 
 async function handleDeleteById(id) {
   try {
-
     let result = await Axios.delete(`/games/${id}`);
     alert("Successfully deleted!");
     return result
-
   } catch (error) {
-
     console.log(error);
     return error
   }
