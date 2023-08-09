@@ -33,7 +33,7 @@ function NewGame() {
         is_multiplayer: false,
         art: "",
       });
-      navigate(`/games`);
+      navigate(`/games/${response.data.data.id}`);
     }
     } catch (error) {
       return error
