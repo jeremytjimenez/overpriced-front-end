@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAllGames } from "../Api/API";
+import { getAllGames, handleDeleteById } from "../Api/API";
+
 
 function Game() {
   const [game, setGame] = useState(null);
@@ -11,7 +12,8 @@ function Game() {
 
   useEffect(() => {
     fetchData();
-  }, [game]);
+  }, []);
+
 
   async function fetchData() {
     try {
@@ -25,8 +27,18 @@ function Game() {
       console.log(error);
     }
   }
+  async function handleDeleteSubmit(id) {
+    try {
+      let result = await handleDeleteById(id);
+      if (result.status===200) {
+          navigate("/games")
+      }
+      } catch (error) {
+      console.log(error);
+    }
+  }
 
-  return (
+  return  (
     <div className="game">
       <section className="gameDetails">
         <img
@@ -75,6 +87,7 @@ function Game() {
       >
         Edit
       </button>
+      <button className="delete" onClick={() =>handleDeleteSubmit(id)}>Delete</button>
     </div>
   );
 }
