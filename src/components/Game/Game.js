@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getAllGames, handleDeleteById } from "../Api/API";
 
+import "./Game.css"
 
 function Game() {
   const [game, setGame] = useState(null);
@@ -13,7 +14,6 @@ function Game() {
   useEffect(() => {
     fetchData();
   }, []);
-
 
   async function fetchData() {
     try {
@@ -30,15 +30,15 @@ function Game() {
   async function handleDeleteSubmit(id) {
     try {
       let result = await handleDeleteById(id);
-      if (result.status===200) {
-          navigate("/games")
+      if (result.status === 200) {
+        navigate("/games");
       }
-      } catch (error) {
+    } catch (error) {
       console.log(error);
     }
   }
 
-  return  (
+  return (
     <div className="game">
       <section className="gameDetails">
         <img
@@ -47,28 +47,42 @@ function Game() {
           alt="box art"
           onClick={() => navigate(`/games/${game.id}`)}
         />
+        <div className="gameInfo">
+          <p className="gameDetailsName">
+            <strong>
+              {game?.name} {`(${game?.release_year})`}
+            </strong>
+          </p>
 
-        <p className="gameDetailsName">
-          <strong>
-            {game?.name} {`(${game?.release_year})`}
-          </strong>
-        </p>
+          <p className="gameDeveloper"> Developer: {game?.developer}</p>
+          <p className="gameGenre">{game?.genre}</p>
+          <p className="gameOriginalPrice">
+            Original Price: {game?.original_price}
+          </p>
+          <p className="gameMarketPrice">Market Price: {game?.market_price}</p>
+          <p className="gameMultiplayer">
+            Multiplayer? {game?.multiplayer ? "Yes" : "No"}
+          </p>
 
-        <p className="gameDeveloper"> Developer: {game?.developer}</p>
-        <p className="gameGenre">{game?.genre}</p>
-        <p className="gameOriginalPrice">
-          Original Price: {game?.original_price}
-        </p>
-        <p className="gameMarketPrice">Market Price: {game?.market_price}</p>
-        <p className="gameMultiplayer">
-          Multiplayer? {game?.multiplayer ? "Yes" : "No"}
-        </p>
-
-        <p
-          className={
-            game?.marketprice - game?.original_price <= 0 ? "$" : "$$$"
-          }
-        ></p>
+          <p
+            className={
+              game?.marketprice - game?.original_price <= 0 ? "$" : "$$$"
+            }
+          ></p>
+          <br />
+          <button
+            className="gameEdit"
+            onClick={() => {
+              navigate(`/games/${id}/edit`);
+            }}
+          >
+            Edit
+          </button>
+          <br />
+          <button className="delete" onClick={() => handleDeleteSubmit(id)}>
+            Delete
+          </button>
+        </div>
       </section>
 
       <button
@@ -77,17 +91,8 @@ function Game() {
           navigate("/games");
         }}
       >
-        Go back
+        Go Back
       </button>
-      <button
-        className="gameEdit"
-        onClick={() => {
-          navigate(`/games/${id}/edit`);
-        }}
-      >
-        Edit
-      </button>
-      <button className="delete" onClick={() =>handleDeleteSubmit(id)}>Delete</button>
     </div>
   );
 }

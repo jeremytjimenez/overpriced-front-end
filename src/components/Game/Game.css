@@ -1,0 +1,84 @@
+.gameDetails {
+    display: grid;
+    grid-template-columns: 50%, 50%;
+    justify-content: center;
+    margin-bottom: 3em;
+    font-family: 'Freesans Bold', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 25%;
+}
+
+.showGameImage {
+    grid-column: 1;
+    margin-right: 5em;
+    margin-top: 2em;
+    height: 400px;
+    width: auto;
+}
+
+/* @keyframes glow {
+    0% {
+        box-shadow: 0px 0px 5px hsla(white, 100%, 100%, 0.8);
+    }
+    25% {
+        box-shadow: 0px 0px 10px hsla(rgb(148, 170, 212), 100%, 100%, 0.6);
+    }
+    50% {
+        box-shadow: 0px 0px 20px hsla(rgb(104, 123, 159), 100%, 100%, 0.5);
+    }
+    75% {
+        box-shadow: 0px 0px 10px hsla(rgb(152, 169, 200), 100%, 100%, 0.6);
+    }
+    100% {
+        box-shadow: 0px 0px 5px hsla(white, 100%, 100%, 0.8);
+    }
+} */
+
+.gameInfo {
+    grid-column: 2;
+    color: #364347;
+    margin-left: 3em;
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.gameDetailsName {
+    color: yellow;
+    font-size: 30px;
+}
+
+.gameDetails button {
+    cursor: pointer;
+    font-size: 30px;
+    margin-bottom: 1em;
+    border: none;
+    text-decoration: none;
+    background: transparent;
+    color: #364347;
+    font-weight: bolder;
+}
+
+.gameEdit:hover {
+    color: #5cc9fb;
+}
+
+.delete:hover {
+    color: rgb(255, 102, 102)
+}
+
+.gameBack {
+    cursor: pointer;
+    font-size: 30px;
+    margin-bottom: 1em;
+    border: none;
+    text-decoration: none;
+    background: transparent;
+    color: #364347;
+    font-weight: bolder;
+}
+
+.gameBack:hover {
+    color: white;
+}
+
