@@ -1,0 +1,85 @@
+.create-game {
+  display: grid;
+  grid-template-rows: 5%, 95%;
+  border: 8px ridge rgb(104, 150, 206);
+  border-radius: 15%;
+  width: 50%;
+  justify-content: center;
+  position: relative;
+  left: 25%;
+}
+
+.create-game h2 {
+  grid-row: 1;
+  color: #5cc9fb;
+  text-shadow: 0px 0px 10px white;
+  font-family: 'Webslinger', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.create-game form div input {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.create-game form div label {
+    color: #5cc9fb;
+    font-family: 'Webslinger', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.create-game form {
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(1fr, 9);
+}
+
+.create-name {
+  grid-row: 1;
+  border-radius: 25%;
+}
+
+.create-releaseyear {
+  grid-row: 2;
+}
+
+.create-developer {
+  grid-row: 3;
+}
+
+.create-original-price {
+  grid-row: 4;
+}
+
+.create-market-price {
+  grid-row: 5;
+}
+
+.create-art {
+  grid-row: 6;
+}
+
+.create-genre {
+  grid-row: 7;
+}
+
+.create-is-multiplayer {
+  grid-row: 8;
+}
+
+.create-button {
+  grid-row: 9;
+  border: none;
+  border-radius: 25%;
+  background: rgb(77, 118, 187);
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: 'Webslinger', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.create-button:hover {
+    color: aquamarine;
+    text-shadow: 0px 0px 10px white;
+}
