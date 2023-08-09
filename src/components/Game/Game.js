@@ -1,12 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAllGames } from "../Api/API";
-import Axios  from "../Api/Axios";
+import { getAllGames, handleDeleteById } from "../Api/API";
+
 
 function Game() {
   const [game, setGame] = useState(null);
-  const [games, setGames] = useState([]);
 
   const {id} = useParams()
   const navigate = useNavigate()
@@ -14,7 +13,7 @@ function Game() {
   useEffect(() => {
     fetchData();
    
-  }, [game, setGames]);
+});
 
   async function fetchData() {
     try {
@@ -28,22 +27,18 @@ function Game() {
       console.log(error);
     }
   }
-
-  async function handleDeleteById(id) {
+  async function handleDeleteSubmit(id) {
     try {
-      
-      let result = await Axios.delete(`/games/${id}`);
-      let filteredGames = games.filter((item) => item !== result);
-      setGames(filteredGames);
-      alert("Successfully deleted!");
-      navigate("/games");
-
-    } catch (error) {
-
+      let result = await handleDeleteById(id);
+      if (result.status===200) {
+          navigate("/games")
+      }
+      } catch (error) {
       console.log(error);
     }
   }
-  return (
+
+  return  (
     <div className="game">
 
       <section className="gameDetails">
@@ -70,7 +65,7 @@ function Game() {
       <button className="gameEdit" onClick={() => {navigate(`/games/${id}/edit`);}}>
         Edit
       </button>
-      <button className="delete" onClick={() => handleDeleteById(id)}>Delete</button>
+      <button className="delete" onClick={() =>handleDeleteSubmit(id)}>Delete</button>
     </div>
   )
 }

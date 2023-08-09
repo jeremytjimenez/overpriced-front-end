@@ -1,6 +1,5 @@
 import Axios from "./Axios";
 
-
 async function createGame(data) {
   try {
     let result = await Axios.post(`/games`, data);
@@ -8,6 +7,20 @@ async function createGame(data) {
   } catch (error) {
     alert(error.response.data.error);
     return error;
+  }
+}
+
+async function handleDeleteById(id) {
+  try {
+
+    let result = await Axios.delete(`/games/${id}`);
+    alert("Successfully deleted!");
+    return result
+
+  } catch (error) {
+
+    console.log(error);
+    return error
   }
 }
 
@@ -31,5 +44,5 @@ async function updateGameById(id, data) {
   }
 }
 
-export { createGame, getAllGames, updateGameById };
+export { createGame, getAllGames, updateGameById, handleDeleteById };
 
