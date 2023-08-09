@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateGameById } from "../Api/API";
+import { updateGameById, getAllGames } from "../Api/API";
 
 import "./EditGame.css"
 
@@ -20,36 +20,24 @@ function EditGame() {
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       let result = await getGameById(id);
-  //       const { name,
-  //   release_year,
-  //   developer,
-  //   original_price,
-  //   market_price,
-  //   genre,
-  //   is_multiplayer,
-  //   art, } = result.data;
-  //       setGame({
-  //         name,
-  //         release_year,
-  //         developer,
-  //         original_price,
-  //         market_price,
-  //         genre,
-  //         is_multiplayer,
-  //         art,
-  //       });
-  //       setIsChecked(is_multiplayer);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let result = await getAllGames();
 
-  //   fetchData();
-  // }, [id]);
+        let findGame = result.data.findIndex((item) => {
+          return item.id === Number(id);
+        });
+       const foundGame = result.data[findGame];
+       setGame(foundGame);
+       setIsChecked(foundGame.is_multiplayer);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   async function handleOnSubmit(event) {
     event.preventDefault();
@@ -59,9 +47,9 @@ function EditGame() {
         is_multiplayer: isChecked,
       });
       if (response.status === 200) {
-        alert("Updated Successfully");
-        navigate(`/games`);
-      }
+      alert("Updated Successfully");
+      navigate(`/games/${id}`);
+    }
     } catch (error) {
       return error;
     }

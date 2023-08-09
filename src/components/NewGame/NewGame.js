@@ -24,19 +24,19 @@ function NewGame() {
     try {
       let response = await createGame({ ...game, is_multiplayer: isChecked });
       if (response.status === 200) {
-        alert("Game Created");
-        setGame({
-          name: "",
-          release_year: "",
-          developer: "",
-          original_price: "",
-          market_price: "",
-          genre: "",
-          is_multiplayer: false,
-          art: "",
-        });
-        navigate(`/games`);
-      }
+      alert("Game Created");
+      setGame({
+        name: "",
+        release_year: "",
+        developer: "",
+        original_price: "",
+        market_price: "",
+        genre: "",
+        is_multiplayer: false,
+        art: "",
+      });
+      navigate(`/games/${response.data.data.id}`);
+    }
     } catch (error) {
       return error;
     }
