@@ -2,9 +2,11 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getAllGames } from "../Api/API";
+import Axios  from "../Api/Axios";
 
 function Game() {
   const [game, setGame] = useState(null);
+  const [games, setGames] = useState([]);
 
   const {id} = useParams()
   const navigate = useNavigate()
@@ -12,7 +14,7 @@ function Game() {
   useEffect(() => {
     fetchData();
    
-  }, [game]);
+  }, [game, setGames]);
 
   async function fetchData() {
     try {
@@ -27,6 +29,20 @@ function Game() {
     }
   }
 
+  async function handleDeleteById(id) {
+    try {
+      
+      let result = await Axios.delete(`/games/${id}`);
+      let filteredGames = games.filter((item) => item !== result);
+      setGames(filteredGames);
+      alert("Successfully deleted!");
+      navigate("/games");
+
+    } catch (error) {
+
+      console.log(error);
+    }
+  }
   return (
     <div className="game">
 
@@ -54,6 +70,7 @@ function Game() {
       <button className="gameEdit" onClick={() => {navigate(`/games/${id}/edit`);}}>
         Edit
       </button>
+      <button className="delete" onClick={() => handleDeleteById(id)}>Delete</button>
     </div>
   )
 }
