@@ -13,5 +13,5 @@ https://www.pricecharting.com/ -> Check your game's market price here!
 
 # Deployed Links
 
-backend: https://overpriced-backend.onrender.com
+backend: https://overpriced-backend.onrender.com \
 frontend: https://sweet-kangaroo-48a4a2.netlify.app
