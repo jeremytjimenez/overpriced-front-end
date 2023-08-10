@@ -5,6 +5,7 @@ import Game from "./components/Game/Game";
 import Nav from "./components/Nav/Nav";
 import NewGame from "./components/NewGame/NewGame";
 import EditGame from "./components/EditGame/EditGame";
+import Info from './components/Info/Info';
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/info" element={<Info />}/>
           <Route path="/games" element={<AllGames />} />
           <Route path="/games/create-game" element={<NewGame />} />
           <Route path="/games/:id" element={<Game />} />

@@ -11,6 +11,9 @@ function Nav() {
         <li className="nav-home">
           <Link to="/">Home</Link>
         </li>
+        <li className="nav-info">
+          <Link to="/info">Info</Link>
+        </li>
         <li>
           <Link to="/"><img src={overpricedLogo} alt="oplogo"/></Link>
         </li>

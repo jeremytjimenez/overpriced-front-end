@@ -23,14 +23,23 @@
     float: left;
 }
 
+.nav-info {
+    float: left;
+    padding-left: 2em;
+}
+
 .nav img {
     max-width: 200px;
-    padding-left: 12em;
+    padding-left: 5em;
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
-.nav-games,
+.nav-games {
+    float: right;
+    padding-right: 2em;
+}
+
 .nav-creategames {
     float: right;
     margin-left: 2em;
