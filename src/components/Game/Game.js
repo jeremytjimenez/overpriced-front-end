@@ -58,9 +58,9 @@ function Game() {
           <p className="gameDeveloper"> Developer: {game?.developer}</p>
           <p className="gameGenre">{game?.genre}</p>
           <p className="gameOriginalPrice">
-            Original Price: {game?.original_price}
+            Original Price: ${game?.original_price}
           </p>
-          <p className="gameMarketPrice">Market Price: {game?.market_price}</p>
+          <p className="gameMarketPrice">Market Price: ${game?.market_price}</p>
           <p className="gameMultiplayer">
             Multiplayer? {game?.is_multiplayer ? "Yes" : "No"}
             <br />
