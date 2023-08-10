@@ -27,13 +27,13 @@ function AllGames() {
 
   function calculateValue(gameInfo) {
     if (gameInfo.market_price / gameInfo.original_price > 5) {
-      return "0px 0px 15px gold";
+      return "0px 0px 15px 5px gold";
     } else if (gameInfo.market_price / gameInfo.original_price > 3) {
-      return "0px 0px 15px red";
+      return "0px 0px 15px 5px red";
     } else if (gameInfo.market_price / gameInfo.original_price > 1) {
-      return "0px 0px 15px gray";
+      return "0px 0px 15px 5px gray";
     } else {
-      return "0px 0px 15px green";
+      return "0px 0px 15px 5px green";
     }
   }
 

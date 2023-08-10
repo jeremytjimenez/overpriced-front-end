@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getAllGames, handleDeleteById } from "../Api/API";
 
 import "./Game.css"
+import controller from '../../assets/playstation2controller.png'
 
 function Game() {
   const [game, setGame] = useState(null);
@@ -61,7 +62,11 @@ function Game() {
           </p>
           <p className="gameMarketPrice">Market Price: {game?.market_price}</p>
           <p className="gameMultiplayer">
-            Multiplayer? {game?.multiplayer ? "Yes" : "No"}
+            Multiplayer? {game?.is_multiplayer ? "Yes" : "No"}
+            <br />
+            {game?.is_multiplayer ? null : (<img src={controller} alt="sad emoji"/>)}
+            {game?.is_multiplayer && (<img src={controller} alt="controller"/>)}
+            {game?.is_multiplayer && (<img src={controller} alt="controller"/>)}
           </p>
 
           <p

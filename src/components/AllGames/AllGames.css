@@ -6,13 +6,15 @@
 }
 
 .all-games ul li img {
-    max-width: 300px;
+    max-height: 300px;
+    border-radius: 10%;
 }
 
 .all-games ul li {
     color: #526879;
     font-family: 'Gamestation','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 1em;
+    font-size: 20px;
     margin-bottom: 1em;
     border: 5px ridge rgb(104, 150, 206);
     margin-left: 5em;
@@ -25,5 +27,6 @@
 }
 
 .all-games ul li h2:hover {
-    color: #1e5ddb;
+    color: #5cc9fb;
+    cursor: pointer;
 }

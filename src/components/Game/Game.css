@@ -37,7 +37,7 @@
 
 .gameInfo {
     grid-column: 2;
-    color: #364347;
+    color: #506369;
     margin-left: 3em;
     -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
@@ -80,5 +80,9 @@
 
 .gameBack:hover {
     color: white;
+}
+
+.gameMultiplayer img {
+    max-width: 25px;
 }
 

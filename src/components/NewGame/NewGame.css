@@ -7,7 +7,8 @@
   justify-content: center;
   position: relative;
   left: 25%;
-  background: url('https://64.media.tumblr.com/e9c169a0e15cf5dd621cecd829847073/tumblr_mkb5s4yvoX1qiiuvxo1_500.gif') no-repeat center center fixed;
+  /* background: url('https://64.media.tumblr.com/e9c169a0e15cf5dd621cecd829847073/tumblr_mkb5s4yvoX1qiiuvxo1_500.gif') no-repeat center center fixed; */
+  background: url('https://bestanimations.com/media/discs/781973870cd-animated-gif-11.gif') no-repeat center center fixed;
 }
 
 .create-game h2 {
