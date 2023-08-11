@@ -8,7 +8,7 @@ import controller from '../../assets/playstation2controller.png'
 
 function Game() {
   const [game, setGame] = useState(null);
-
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -28,7 +28,11 @@ function Game() {
     fetchData();
   }, [id]);
 
-  async function handleDeleteSubmit(id) {
+  async function handleDeleteRequest(id) {
+    setShowConfirmation(true);
+  }
+
+  async function handleDeleteSubmit() {
     try {
       let result = await handleDeleteById(id);
       if (result.status === 200) {
@@ -37,6 +41,10 @@ function Game() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function handleCancelDelete() {
+    setShowConfirmation(false);
   }
 
   return (
@@ -64,9 +72,11 @@ function Game() {
           <p className="gameMultiplayer">
             Multiplayer? {game?.is_multiplayer ? "Yes" : "No"}
             <br />
-            {game?.is_multiplayer ? null : (<img src={controller} alt="sad emoji"/>)}
-            {game?.is_multiplayer && (<img src={controller} alt="controller"/>)}
-            {game?.is_multiplayer && (<img src={controller} alt="controller"/>)}
+            {game?.is_multiplayer ? null : (
+              <img src={controller} alt="sad emoji" />
+            )}
+            {game?.is_multiplayer && <img src={controller} alt="controller" />}
+            {game?.is_multiplayer && <img src={controller} alt="controller" />}
           </p>
 
           <p
@@ -84,7 +94,7 @@ function Game() {
             Edit
           </button>
           <br />
-          <button className="delete" onClick={() => handleDeleteSubmit(id)}>
+          <button className="delete" onClick={() => handleDeleteRequest(id)}>
             Delete
           </button>
         </div>
@@ -98,6 +108,22 @@ function Game() {
       >
         Go Back
       </button>
+
+      {showConfirmation && (
+        <div className="game-deletion-container-navigation">
+          <p>
+            <strong>Are you sure you want to delete this game?</strong>
+          </p>
+          <ul>
+            <li>
+              <button onClick={handleDeleteSubmit}>Yes</button>
+            </li>
+            <li>
+              <button onClick={handleCancelDelete}>No</button>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
