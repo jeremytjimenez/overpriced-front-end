@@ -15,3 +15,4 @@ https://www.pricecharting.com/ -> Check your game's market price here!
 
 backend: https://overpriced-backend.onrender.com \
 frontend: https://sweet-kangaroo-48a4a2.netlify.app
+trello: https://trello.com/b/E94MeH5D/overpriced
