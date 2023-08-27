@@ -89,16 +89,16 @@
 }
 
 .game-deletion-container-navigation {
-  max-width: 900px;
-  margin: 0 auto;
-  margin-top: 25px;
   background-color: rgb(198, 242, 255);
+  border-radius: 10px;
 }
 
 .game-deletion-container-navigation p {
   display: flex;
   justify-content: center;
   padding-top: 25px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .game-deletion-container-navigation ul {
@@ -108,8 +108,9 @@
 }
 
 .game-deletion-container-navigation ul li {
-  padding-left: 25px;
   padding-right: 40px;
-  margin-bottom: 20px;
 }
 
+.game-deletion-container-navigation ul li button:hover {
+    color: white;
+}

@@ -1,16 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
-import AllGames from "./components/AllGames/AllGames";
-import Game from "./components/Game/Game";
-import Nav from "./components/Nav/Nav";
-import NewGame from "./components/NewGame/NewGame";
-import EditGame from "./components/EditGame/EditGame";
-import Info from './components/Info/Info';
+import Spinner from "./components/common/Spinner/Spinner";
 import "./App.css";
+import React from "react";
+const Home = React.lazy(() => import("./components/Home/Home"));
+const AllGames = React.lazy(() => import("./components/AllGames/AllGames"));
+const Game = React.lazy(() => import("./components/Game/Game"));
+const Nav = React.lazy(() => import("./components/Nav/Nav"));
+const NewGame = React.lazy(() => import("./components/NewGame/NewGame"));
+const EditGame = React.lazy(() => import("./components/EditGame/EditGame"));
+const Info = React.lazy(() => import("./components/Info/Info"));
 
 function App() {
   return (
     <div className="App">
+      <React.Suspense fallback={<Spinner />}>
       <Router>
         <Nav />
         <Routes>
@@ -24,6 +27,7 @@ function App() {
           <Route path="*" element={<h1>404 Not found!</h1>} />
         </Routes>
       </Router>
+      </React.Suspense>
     </div>
   );
 }

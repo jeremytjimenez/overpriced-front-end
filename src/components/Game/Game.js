@@ -94,11 +94,28 @@ function Game() {
             Edit
           </button>
           <br />
+
+          {showConfirmation && (
+            <div className="game-deletion-container-navigation">
+              <p>
+                <strong>Are you sure you want to delete this game?</strong>
+              </p>
+              <ul>
+                <li>
+                  <button onClick={handleDeleteSubmit}>Yes</button>
+                </li>
+                <li>
+                  <button onClick={handleCancelDelete}>No</button>
+                </li>
+              </ul>
+            </div>
+          )}
           <button className="delete" onClick={() => handleDeleteRequest(id)}>
             Delete
           </button>
         </div>
       </section>
+
 
       <button
         className="gameBack"
@@ -108,22 +125,6 @@ function Game() {
       >
         Go Back
       </button>
-
-      {showConfirmation && (
-        <div className="game-deletion-container-navigation">
-          <p>
-            <strong>Are you sure you want to delete this game?</strong>
-          </p>
-          <ul>
-            <li>
-              <button onClick={handleDeleteSubmit}>Yes</button>
-            </li>
-            <li>
-              <button onClick={handleCancelDelete}>No</button>
-            </li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
